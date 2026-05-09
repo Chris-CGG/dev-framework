@@ -1,4 +1,4 @@
-# CxMxC Product Development Lifecycle Framework
+# Open Product Development Lifecycle Framework
 
 **A repeatable protocol for human-AI collaborative builds**
 
@@ -6,7 +6,7 @@
 
 ## Overview
 
-This framework was built during the **cxmxc-training** project — a real-world product where a single builder collaborated with Claude to ship a PWA from problem statement to deployed application. The lessons, friction points, and recovery patterns from that build are codified here so they don't have to be re-learned on the next project.
+This framework was distilled from a real-world reference build — a small wellness PWA where a single builder collaborated with Claude to ship from problem statement to deployed application. The lessons, friction points, and recovery patterns from that build (preserved as **reference-app** in `REFERENCE_IMPLEMENTATION.md`) are codified here so they don't have to be re-learned on the next project.
 
 It is designed for:
 
@@ -19,7 +19,7 @@ It is designed for:
 The framework is intentionally split into two layers:
 
 1. **The process** — tight, repeatable, technology-agnostic. Lives in `PHASES.md`, `GATES.md`, `CLAUDE_PROTOCOL.md`, and `NEW_PROJECT_TEMPLATE.md`.
-2. **The reference implementation** — how cxmxc-training executed (or skipped) each phase, what worked, what didn't. Lives in `CXMXC_REFERENCE.md`.
+2. **The reference implementation** — how reference-app executed (or skipped) each phase, what worked, what didn't. Lives in `REFERENCE_IMPLEMENTATION.md`.
 
 The process layer is meant to be copied into any new repo. The reference layer is a historical record — read it once for the lessons, then leave it.
 
@@ -54,7 +54,7 @@ Phase gates explicitly call out which controls are evaluated at each transition.
 | `PHASES.md` | The 7 phases — entry, activities, deliverables, exit. |
 | `GATES.md` | Phase gate checklists and what Claude refuses to do without them. |
 | `CLAUDE_PROTOCOL.md` | How Claude behaves inside the framework. |
-| `CXMXC_REFERENCE.md` | Reference implementation: how cxmxc-training did each phase. |
+| `REFERENCE_IMPLEMENTATION.md` | Reference implementation: how reference-app did each phase. |
 | `CHANGELOG.md` | Versioned record of changes to this framework. |
 | `NEW_PROJECT_TEMPLATE.md` | Copy-paste starter for a new project. |
 
@@ -68,9 +68,9 @@ Phase gates explicitly call out which controls are evaluated at each transition.
 
 ## How to use it on an in-flight project
 
-If you are mid-build when you adopt the framework (this is how cxmxc-training adopted it):
+If you are mid-build when you adopt the framework (this is how reference-app adopted it):
 
-1. Read `CXMXC_REFERENCE.md` first — it documents this exact recovery pattern.
+1. Read `REFERENCE_IMPLEMENTATION.md` first — it documents this exact recovery pattern.
 2. Identify the highest phase you have legitimately completed.
 3. Run the gate checklist for that phase. Anything unchecked is a retroactive deliverable.
 4. Catch up the gates before adding new features.
@@ -78,4 +78,4 @@ If you are mid-build when you adopt the framework (this is how cxmxc-training ad
 
 ## A word on honesty
 
-The reference implementation includes a list of things cxmxc-training got wrong. This is intentional. A framework that pretends every project executed it perfectly is a framework no one trusts. The point of writing this down is so the next project can be honest with itself about where it actually is, and what it actually skipped.
+The reference implementation includes a list of things reference-app got wrong. This is intentional. A framework that pretends every project executed it perfectly is a framework no one trusts. The point of writing this down is so the next project can be honest with itself about where it actually is, and what it actually skipped.

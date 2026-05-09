@@ -2,7 +2,7 @@
 
 **A reusable Product Development Lifecycle (PDLC) framework for human-AI collaborative builds.**
 
-This repository is the canonical home of the **CxMxC PDLC** — a tight, repeatable, technology-agnostic protocol for shipping software with Claude as your engineering partner. It is designed to be copied into any new project, applied to any in-flight project, and reviewed against any finished project.
+This repository is the canonical home of the **Open PDLC** — a tight, repeatable, technology-agnostic protocol for shipping software with Claude as your engineering partner. It is designed to be copied into any new project, applied to any in-flight project, and reviewed against any finished project.
 
 ---
 
@@ -10,7 +10,7 @@ This repository is the canonical home of the **CxMxC PDLC** — a tight, repeata
 
 Solo developers and small teams move fast with Claude. That is the upside. The downside is that without a protocol, projects drift: gates get skipped silently, documentation rots, scope creeps, security review gets pushed to "later." This framework is the protocol that prevents those failure modes — codified once, copied everywhere.
 
-It was built during the **cxmxc-training** project, an athlete training PWA with mood-gated check-ins. The lessons (good and bad) from that real build are preserved verbatim in `docs/PDLC/CXMXC_REFERENCE.md` so the next project can learn from them honestly.
+It was distilled from a real reference build — a small wellness PWA with state-gated check-ins, preserved here under the neutral name **reference-app**. The lessons (good and bad) from that build are recorded in `docs/PDLC/REFERENCE_IMPLEMENTATION.md` so the next project can learn from them honestly.
 
 ---
 
@@ -26,7 +26,7 @@ dev-framework/
         ├── PHASES.md               <- the 7 phases (Discovery → Iteration)
         ├── GATES.md                <- exit checklists + what Claude refuses without them
         ├── CLAUDE_PROTOCOL.md      <- how Claude behaves inside the framework
-        ├── CXMXC_REFERENCE.md      <- honest record of the reference build
+        ├── REFERENCE_IMPLEMENTATION.md  <- honest record of the reference build (reference-app)
         ├── CHANGELOG.md            <- versioned history of the framework itself
         └── NEW_PROJECT_TEMPLATE.md <- copy-paste CLAUDE.md for new projects
 ```
@@ -71,9 +71,9 @@ When Claude joins your next session, the first thing it will do is read `CLAUDE.
 
 ## Quickstart — adopting the framework on an in-flight project
 
-This is how cxmxc-training adopted the framework. It works.
+This is how reference-app adopted the framework. It works.
 
-1. Read [`docs/PDLC/CXMXC_REFERENCE.md`](./docs/PDLC/CXMXC_REFERENCE.md) — it documents this exact recovery pattern.
+1. Read [`docs/PDLC/REFERENCE_IMPLEMENTATION.md`](./docs/PDLC/REFERENCE_IMPLEMENTATION.md) — it documents this exact recovery pattern.
 2. Identify the highest phase you have *legitimately* completed (be honest).
 3. Copy `NEW_PROJECT_TEMPLATE.md` to your project root as `CLAUDE.md`. Tick the corresponding box on the phase tracker.
 4. Run the gate checklist in `docs/PDLC/GATES.md` for that phase. Anything unchecked is a retroactive deliverable — finish those before adding new features.
@@ -150,4 +150,4 @@ No license file is currently committed. Treat the contents as "all rights reserv
 - Want the framework's rationale? → [`docs/PDLC/README.md`](./docs/PDLC/README.md)
 - Want to understand what each phase does? → [`docs/PDLC/PHASES.md`](./docs/PDLC/PHASES.md)
 - Want to know how Claude behaves? → [`docs/PDLC/CLAUDE_PROTOCOL.md`](./docs/PDLC/CLAUDE_PROTOCOL.md)
-- Want a real-world example, warts and all? → [`docs/PDLC/CXMXC_REFERENCE.md`](./docs/PDLC/CXMXC_REFERENCE.md)
+- Want a real-world example, warts and all? → [`docs/PDLC/REFERENCE_IMPLEMENTATION.md`](./docs/PDLC/REFERENCE_IMPLEMENTATION.md)

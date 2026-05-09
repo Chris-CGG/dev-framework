@@ -1,17 +1,21 @@
-# cxmxc-training Reference Implementation
+# reference-app — Reference Implementation
 
-This document is an honest record of how the **cxmxc-training** project executed each phase of the PDLC. It includes what was done well, what was skipped, and what had to be patched retroactively. It is not a success story — it is a working record. The point is so the next project can be honest with itself about where it actually is.
+This document is an honest record of how the **reference-app** project executed each phase of the PDLC. It is a generic example: a small wellness PWA used as the original proving ground for the Open PDLC Framework. The project name and domain specifics have been neutralized so this document reads as a template for any project's retrospective.
+
+It includes what was done well, what was skipped, and what had to be patched retroactively. It is not a success story — it is a working record. The point is so the next project can be honest with itself about where it actually is.
+
+> **Replace this with your own record.** Copy this file into your project as `docs/REFERENCE_IMPLEMENTATION.md`, swap "reference-app" for your project name, and fill each phase with what actually happened — not what you wish had happened.
 
 ---
 
 ## Phase 0 — Discovery
 
-**How we executed it:** Mostly skipped formally. The problem was understood in the builder's head — burst-crash detection in athlete training data, with mood-gated check-ins to avoid forcing inputs during low-state days. No `DISCOVERY.md` was created at the time.
+**How we executed it:** Mostly skipped formally. The problem was understood in the builder's head — anomaly detection in time-series user activity data, with state-gated input flow to avoid forcing inputs during low-state days. No `DISCOVERY.md` was created at the time.
 
 **What we got right:**
-- The user was clear from day one (the builder, an athlete logging their own training).
-- Mental health considerations were a first-class design constraint, not an afterthought.
-- The "mood gate" concept came from a real lived constraint, not a feature wishlist.
+- The user was clear from day one (the builder, an end-user logging their own activity).
+- Wellbeing considerations were a first-class design constraint, not an afterthought.
+- The "state gate" concept came from a real lived constraint, not a feature wishlist.
 
 **What we should have done differently:**
 - Written the discovery down. The cost of not writing it: assumptions drifted between sessions, and Claude could not reliably enforce scope without a written reference.
@@ -27,18 +31,18 @@ This document is an honest record of how the **cxmxc-training** project executed
 
 ## Phase 1 — Architecture
 
-**How we executed it:** Partial. Component sketches existed mentally. Athlete profile schema was strong from day one — single source of truth, the right call. ERD was not created until after core build.
+**How we executed it:** Partial. Component sketches existed mentally. The primary user-profile schema was strong from day one — single source of truth, the right call. ERD was not created until after core build.
 
 **What we got right:**
-- Athlete profile as the single source of truth for identity, baseline metrics, and preferences.
+- User profile as the single source of truth for identity, baseline metrics, and preferences.
 - Data files separated from logic — easy to swap or version data without touching code.
-- Mood gate baked into the architecture, not bolted on.
+- State gate baked into the architecture, not bolted on.
 
 **What we should have done differently:**
-- Drawn the ERD before writing data-touching code. Mood and check-in entities evolved during build, which created small refactors that a 30-minute up-front diagram would have prevented.
+- Drawn the ERD before writing data-touching code. Secondary entities (state events, check-ins) evolved during build, which created small refactors that a 30-minute up-front diagram would have prevented.
 - Tech decisions were not justified in writing. They were good decisions; they just lacked the paper trail.
 
-**Artifacts that exist:** `architecture.md` (retroactive), athlete profile schema (original).
+**Artifacts that exist:** `architecture.md` (retroactive), user profile schema (original).
 
 **Artifacts that are missing:** Original tech decisions justification document. `TECH_DECISIONS.md` reconstructed in Phase 4.
 
@@ -69,11 +73,11 @@ This document is an honest record of how the **cxmxc-training** project executed
 
 ## Phase 3 — Core Build
 
-**How we executed it:** This is where the project actually started. Mood gate and stability score were built first, which validated the central hypothesis quickly. Commit discipline was inconsistent until enforced mid-project.
+**How we executed it:** This is where the project actually started. The state gate and the primary derived metric were built first, which validated the central hypothesis quickly. Commit discipline was inconsistent until enforced mid-project.
 
 **What we got right:**
-- Built the right thing first. Mood gate and stability score are the load-bearing UX features; everything else is decoration.
-- Stability score as burst-crash detection — the original insight held up under real data.
+- Built the right thing first. The state gate and the derived metric are the load-bearing UX features; everything else is decoration.
+- The derived metric as anomaly detection — the original insight held up under real data.
 - Tested in target environment (mobile browser, PWA-installed) regularly.
 
 **What we should have done differently:**
@@ -111,7 +115,7 @@ This document is an honest record of how the **cxmxc-training** project executed
 
 ## Phase 5 — Deployment
 
-**How we executed it:** Deployed to GitHub Pages. PWA install verified on iOS and Android. First real check-in completed by the builder on their training device.
+**How we executed it:** Deployed to GitHub Pages. PWA install verified on iOS and Android. First real check-in completed by the builder on their target device.
 
 **What we got right:**
 - Real-device testing before declaring deploy successful.
@@ -131,7 +135,7 @@ This document is an honest record of how the **cxmxc-training** project executed
 
 ## Phase 6 — Iteration
 
-**How we executed it:** Ongoing. Weekly feedback cycle from the builder's own training data. Changes are small and tested before merge.
+**How we executed it:** Ongoing. Weekly feedback cycle from the builder's own usage data. Changes are small and tested before merge.
 
 **What we got right:**
 - Treating real-usage feedback as the priority signal.
@@ -164,10 +168,10 @@ These are documented as reconstructed/retroactive so future readers can distingu
 
 These are the design choices that have held up under real use and are worth carrying forward to future projects:
 
-- **Athlete profile as single source of truth.** All identity, baseline, and preference data lives in one schema. Everything else references it. Refactors that touched profile shape were small because the seam was clean.
-- **Mental health considerations baked into architecture.** The mood gate is not a feature flag bolted onto a check-in form — it is the entry condition for the data flow. Low-state days do not force inputs.
-- **Data files separate from logic.** JSON data files are versioned independently of code. Updating training programs or reference values does not require a code change.
-- **Mood gate as primary UX driver.** The first interaction every day is "how are you?" — and the rest of the UX adapts from there. This is correct for the user and correct for the data quality.
-- **Stability score as burst-crash detection.** The central hypothesis — that a rolling stability metric catches dangerous training patterns earlier than a raw load number — has been validated against real training data. Worth the engineering investment.
+- **User profile as single source of truth.** All identity, baseline, and preference data lives in one schema. Everything else references it. Refactors that touched profile shape were small because the seam was clean.
+- **Wellbeing considerations baked into architecture.** The state gate is not a feature flag bolted onto a check-in form — it is the entry condition for the data flow. Low-state days do not force inputs.
+- **Data files separate from logic.** JSON data files are versioned independently of code. Updating reference values does not require a code change.
+- **State gate as primary UX driver.** The first interaction every day is "how are you?" — and the rest of the UX adapts from there. This is correct for the user and correct for the data quality.
+- **Derived metric as anomaly detection.** The central hypothesis — that a rolling derived metric catches dangerous patterns earlier than a raw input number — has been validated against real data. Worth the engineering investment.
 
 These five choices are the reason the product is useful. The lessons in the rest of this document are about *how the build went*; these are about *what the build is*. Carry both forward.

@@ -1,6 +1,6 @@
 # CLAUDE.md — dev-framework
 
-> This repository hosts the **CxMxC Product Development Lifecycle Framework**. It governs itself by its own framework. The full framework lives in `docs/PDLC/`.
+> This repository hosts the **Open Product Development Lifecycle Framework** (Open PDLC). It governs itself by its own framework. The full framework lives in `docs/PDLC/`.
 
 ---
 
@@ -14,14 +14,14 @@
 
 ## Problem statement
 
-Solo developers and small teams building with Claude need a tight, repeatable protocol that balances creative freedom with engineering rigor. Without one, projects drift, documentation rots, and gates that should have been enforced get skipped silently. This repository defines that protocol once so it can be copied into every future project, with the cxmxc-training build serving as the honest reference implementation.
+Solo developers and small teams building with Claude need a tight, repeatable protocol that balances creative freedom with engineering rigor. Without one, projects drift, documentation rots, and gates that should have been enforced get skipped silently. This repository defines that protocol once so it can be copied into every future project, with the reference-app build serving as the honest reference implementation.
 
 ## User profile
 
 - **Primary user:** Solo developers and small teams using Claude as their engineering partner.
 - **Context:** Starting a new project, recovering an in-flight project, or reviewing a finished one against a known protocol.
 - **Constraints:** Must be technology-agnostic. Must support regulated environments (HIPAA, PCI, NIST 800-171, CMMC L2). Must be readable cold by a future builder who has never seen the project.
-- **Mental health / wellbeing considerations:** N/A for the framework repo itself. The framework explicitly supports projects where these are first-class design constraints (see cxmxc-training reference).
+- **Mental health / wellbeing considerations:** N/A for the framework repo itself. The framework explicitly supports projects where these are first-class design constraints (see `REFERENCE_IMPLEMENTATION.md`).
 
 ## Tech stack
 
@@ -73,7 +73,7 @@ Gate criteria for each phase live in `docs/PDLC/GATES.md`. Phase definitions liv
 ## Project-specific rules
 
 - **The framework documents itself.** Any change to `docs/PDLC/*.md` must update `docs/PDLC/CHANGELOG.md` in the same commit.
-- **Honesty over polish.** `CXMXC_REFERENCE.md` documents what was skipped or patched. Future reference implementations follow the same pattern — do not rewrite history to look cleaner than it was.
+- **Honesty over polish.** `REFERENCE_IMPLEMENTATION.md` documents what was skipped or patched. Future reference implementations follow the same pattern — do not rewrite history to look cleaner than it was.
 - **Compliance references stay current.** When a referenced standard publishes a major revision (e.g., NIST 800-171 Rev. 3), update the framework rather than letting references drift.
 - **Use Conventional Commits with the `pdlc` scope** for changes inside `docs/PDLC/` (e.g., `docs(pdlc): clarify Phase 1 gate`).
 - **No emojis** in framework files unless explicitly requested.

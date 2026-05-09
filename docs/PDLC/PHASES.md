@@ -1,6 +1,6 @@
 # PDLC Phases
 
-Seven phases. Each has an objective, entry criteria, activities, role definitions, deliverables, and an exit gate. Reference implementation rows describe how **cxmxc-training** executed (or, in some cases, retroactively patched) the phase.
+Seven phases. Each has an objective, entry criteria, activities, role definitions, deliverables, and an exit gate. Reference implementation rows describe how **reference-app** executed (or, in some cases, retroactively patched) the phase.
 
 ---
 
@@ -29,7 +29,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 
 **Exit gate:** Can you describe the user's daily interaction with the product in 3 sentences without mentioning technology?
 
-**Reference implementation (cxmxc-training):** Skipped formally. The problem ("burst-crash detection in athlete training data with mood-gated check-ins") was understood in the builder's head but not written down until Phase 4. Retroactively reconstructed in `DISCOVERY.md`. **Lesson: even solo builders need this artifact — future-you is a different stakeholder.**
+**Reference implementation (reference-app):** Skipped formally. The problem ("anomaly detection in user activity data with state-gated check-ins") was understood in the builder's head but not written down until Phase 4. Retroactively reconstructed in `DISCOVERY.md`. **Lesson: even solo builders need this artifact — future-you is a different stakeholder.**
 
 ---
 
@@ -64,7 +64,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 - Are all external dependencies identified?
 - Is every sensitive data field tagged with its classification and the control protecting it?
 
-**Reference implementation (cxmxc-training):** Partially executed. Component sketches existed; ERD did not. Athlete profile schema was strong from day one (single source of truth — got that right), but mood/check-in entities evolved during build. ERD was generated retroactively in Phase 4.
+**Reference implementation (reference-app):** Partially executed. Component sketches existed; ERD did not. The user profile schema was strong from day one (single source of truth — got that right), but secondary state/check-in entities evolved during build. ERD was generated retroactively in Phase 4.
 
 ---
 
@@ -98,7 +98,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 
 **Exit gate:** Can a new developer understand the project structure in under 5 minutes from `README.md` alone?
 
-**Reference implementation (cxmxc-training):** `CLAUDE.md` was created at build time, not foundation time. Folder structure was sound. Data files were populated correctly from day one. Retrofitted: README written in Phase 4.
+**Reference implementation (reference-app):** `CLAUDE.md` was created at build time, not foundation time. Folder structure was sound. Data files were populated correctly from day one. Retrofitted: README written in Phase 4.
 
 ---
 
@@ -133,7 +133,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 
 **Exit gate:** Does the product solve the core problem stated in `DISCOVERY.md` **without any additional features**?
 
-**Reference implementation (cxmxc-training):** This phase ran ahead of Phase 1 in places. Mood gate and stability score were the right first features to build (they validated the central hypothesis). Commit discipline was inconsistent until enforced mid-project.
+**Reference implementation (reference-app):** This phase ran ahead of Phase 1 in places. The state gate and the primary derived metric were the right first features to build (they validated the central hypothesis). Commit discipline was inconsistent until enforced mid-project.
 
 ---
 
@@ -174,7 +174,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 
 **Exit gate:** Would you be comfortable sharing this repo publicly right now?
 
-**Reference implementation (cxmxc-training):** This phase did most of the documentation catch-up work. README, ERD, and tech decisions doc were all generated here instead of earlier phases. Security review caught one hardcoded value that should have been an env var.
+**Reference implementation (reference-app):** This phase did most of the documentation catch-up work. README, ERD, and tech decisions doc were all generated here instead of earlier phases. Security review caught one hardcoded value that should have been an env var.
 
 ---
 
@@ -206,7 +206,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 
 **Exit gate:** Has a real user completed one full workflow end to end on the target device?
 
-**Reference implementation (cxmxc-training):** GitHub Pages target. PWA install verified on iOS and Android. First real check-in completed by the builder on their training device.
+**Reference implementation (reference-app):** GitHub Pages target. PWA install verified on iOS and Android. First real check-in completed by the builder on their target device.
 
 ---
 
