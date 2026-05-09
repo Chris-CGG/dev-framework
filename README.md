@@ -10,7 +10,7 @@ This repository is the canonical home of the **Open PDLC** — a tight, repeatab
 
 Solo developers and small teams move fast with Claude. That is the upside. The downside is that without a protocol, projects drift: gates get skipped silently, documentation rots, scope creeps, security review gets pushed to "later." This framework is the protocol that prevents those failure modes — codified once, copied everywhere.
 
-It was distilled from a real reference build — a small wellness PWA with state-gated check-ins, preserved here under the neutral name **reference-app**. The lessons (good and bad) from that build are recorded in `docs/PDLC/REFERENCE_IMPLEMENTATION.md` so the next project can learn from them honestly.
+It was distilled from a real reference build — preserved here under the neutral name **reference-app**, with all domain specifics stripped. The lessons (good and bad) from that build are recorded in `docs/PDLC/REFERENCE_IMPLEMENTATION.md` at a level that applies to any project type: web app, backend service, CLI tool, library, mobile app, data pipeline, or anything else a builder might ship with Claude.
 
 ---
 

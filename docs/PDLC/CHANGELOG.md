@@ -11,7 +11,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Changed
 - **Renamed framework from "CxMxC PDLC Framework" to "Open PDLC Framework"** to remove personal-initial branding and present a neutral, universally adoptable identity. Full name is now "Open Product Development Lifecycle Framework."
 - Renamed `CXMXC_REFERENCE.md` → `REFERENCE_IMPLEMENTATION.md` and replaced project-specific identifiers (athlete profile, mood gate, stability score, burst-crash detection, training device) with neutral placeholders (user profile, state gate, primary derived metric, anomaly detection, target device). Reference project is now called **reference-app**.
-- Updated all framework files (`README.md` at repo root, `CLAUDE.md`, `docs/PDLC/README.md`, `docs/PDLC/PHASES.md`, `docs/PDLC/CHANGELOG.md`) to use the new name and reference identifier.
+- **Stripped remaining domain-flavored language** (wellness, PWA-only framing, check-in, state-gate, mood) from `REFERENCE_IMPLEMENTATION.md`, `PHASES.md` Phase 5 activities/role/deliverables, `PHASES.md` Phase 2 build-scaffolding activity, `GATES.md` Phase 2 and Phase 5 gate items, `README.md` (root and `docs/PDLC/`), and `CLAUDE.md`. The framework and reference now read as project-type-agnostic — equally applicable to web apps, backend services, CLI tools, libraries, mobile apps, data pipelines, and other project types.
+- Phase 2 / Phase 5 examples now enumerate multiple project types (PWA, container, CLI, mobile, package, etc.) instead of leading with one.
+- "What This Project Does Right" lessons in `REFERENCE_IMPLEMENTATION.md` reframed at a level that applies to any domain (e.g., "Domain constraints baked into architecture, not bolted on" replaces "Wellbeing considerations baked into architecture").
+- Updated all framework files to use the new name and reference identifier.
 
 ### Added
 - Top-level `README.md` orienting new builders to the repo: what it is, what's inside, three quickstart paths (new project / in-flight project / review of a finished project), the five mid-session prefixes, compliance posture, and contribution rules.

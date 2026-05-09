@@ -21,7 +21,7 @@ Solo developers and small teams building with Claude need a tight, repeatable pr
 - **Primary user:** Solo developers and small teams using Claude as their engineering partner.
 - **Context:** Starting a new project, recovering an in-flight project, or reviewing a finished one against a known protocol.
 - **Constraints:** Must be technology-agnostic. Must support regulated environments (HIPAA, PCI, NIST 800-171, CMMC L2). Must be readable cold by a future builder who has never seen the project.
-- **Mental health / wellbeing considerations:** N/A for the framework repo itself. The framework explicitly supports projects where these are first-class design constraints (see `REFERENCE_IMPLEMENTATION.md`).
+- **Mental health / wellbeing considerations:** N/A for the framework repo itself. The framework supports projects of any type, including those where regulatory, wellbeing, or other domain-specific constraints are first-class design inputs.
 
 ## Tech stack
 

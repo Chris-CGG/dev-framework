@@ -6,7 +6,7 @@
 
 ## Overview
 
-This framework was distilled from a real-world reference build — a small wellness PWA where a single builder collaborated with Claude to ship from problem statement to deployed application. The lessons, friction points, and recovery patterns from that build (preserved as **reference-app** in `REFERENCE_IMPLEMENTATION.md`) are codified here so they don't have to be re-learned on the next project.
+This framework was distilled from a real-world reference build where a single builder collaborated with Claude to ship from problem statement to deployed application. The lessons, friction points, and recovery patterns from that build are preserved (with all domain specifics stripped) as **reference-app** in `REFERENCE_IMPLEMENTATION.md` — framed at a level that applies to any project type: web app, backend service, CLI tool, library, mobile app, data pipeline, or anything else.
 
 It is designed for:
 
@@ -39,7 +39,7 @@ This framework is designed to operate in environments that require conformance w
 - **ISO 27001** (information security management)
 - **ISO 9001** (quality management)
 - **NIST SP 800-171** (controlled unclassified information)
-- **HIPAA** (when health/wellness data is in scope)
+- **HIPAA** (when protected health information is in scope)
 - **PCI DSS** (when payment data is in scope)
 - **CMMC Level 2** (controlled unclassified information for defense contractors)
 - **NIST AI RMF** (AI risk management — relevant whenever Claude or another model is in the build loop)

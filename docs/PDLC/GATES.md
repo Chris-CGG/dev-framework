@@ -43,7 +43,7 @@ Every phase has a gate. You may not enter the next phase until every box is chec
 - [ ] Repo folder structure matches architecture
 - [ ] `CLAUDE.md` exists and is filled out
 - [ ] Base data files / schemas populated
-- [ ] PWA manifest and service worker present (if applicable)
+- [ ] Build / distribution scaffolding present for the project type (e.g., `package.json`, `Dockerfile`, PWA manifest, app store config — whichever applies)
 - [ ] CI/CD pipeline configured (if applicable)
 - [ ] Commit convention documented (Conventional Commits or equivalent)
 - [ ] README shell exists with empty section headings
@@ -106,7 +106,7 @@ Every phase has a gate. You may not enter the next phase until every box is chec
 
 - [ ] Deployment target chosen and configured
 - [ ] Environment variables managed via the platform's secret store
-- [ ] PWA install verified on target device(s)
+- [ ] Install / access verified on target environment(s) (PWA install, package install, container deploy, mobile sideload, CLI install path, API smoke test — whichever applies)
 - [ ] Performance verified on real hardware
 - [ ] First real user session completed end to end
 - [ ] Feedback collection mechanism live

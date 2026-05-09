@@ -29,7 +29,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 
 **Exit gate:** Can you describe the user's daily interaction with the product in 3 sentences without mentioning technology?
 
-**Reference implementation (reference-app):** Skipped formally. The problem ("anomaly detection in user activity data with state-gated check-ins") was understood in the builder's head but not written down until Phase 4. Retroactively reconstructed in `DISCOVERY.md`. **Lesson: even solo builders need this artifact — future-you is a different stakeholder.**
+**Reference implementation (reference-app):** Skipped formally. The core problem and primary user flow were understood in the builder's head but not written down until Phase 4. Retroactively reconstructed in `DISCOVERY.md`. **Lesson: even solo builders need this artifact — future-you is a different stakeholder.**
 
 ---
 
@@ -64,7 +64,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 - Are all external dependencies identified?
 - Is every sensitive data field tagged with its classification and the control protecting it?
 
-**Reference implementation (reference-app):** Partially executed. Component sketches existed; ERD did not. The user profile schema was strong from day one (single source of truth — got that right), but secondary state/check-in entities evolved during build. ERD was generated retroactively in Phase 4.
+**Reference implementation (reference-app):** Partially executed. Component sketches existed; ERD did not. The primary entity schema was strong from day one (single source of truth — got that right), but secondary entities evolved during build. ERD was generated retroactively in Phase 4.
 
 ---
 
@@ -78,7 +78,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 - Repo setup with proper folder structure.
 - `CLAUDE.md` with project rules and context.
 - Base data files (JSON schemas populated).
-- PWA manifest and service worker if applicable.
+- Build and distribution scaffolding (e.g., `package.json`, `Dockerfile`, `Makefile`, `pyproject.toml`, PWA manifest and service worker, app store config — whatever applies).
 - CI/CD pipeline if applicable.
 - Commit convention established (Conventional Commits recommended).
 - README shell created (sections present, content TBD).
@@ -133,7 +133,7 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 
 **Exit gate:** Does the product solve the core problem stated in `DISCOVERY.md` **without any additional features**?
 
-**Reference implementation (reference-app):** This phase ran ahead of Phase 1 in places. The state gate and the primary derived metric were the right first features to build (they validated the central hypothesis). Commit discipline was inconsistent until enforced mid-project.
+**Reference implementation (reference-app):** This phase ran ahead of Phase 1 in places. The load-bearing primary features were built first — they validated the central hypothesis quickly and everything else hung off them cleanly. Commit discipline was inconsistent until enforced mid-project.
 
 ---
 
@@ -185,28 +185,28 @@ Seven phases. Each has an objective, entry criteria, activities, role definition
 **Entry criteria:** Hardening complete.
 
 **Activities:**
-- Choose deployment target (GitHub Pages, Vercel, Netlify, etc.).
-- Environment variable management.
-- PWA install testing on target devices.
-- Performance testing on real hardware (not just dev machine).
+- Choose deployment target (managed hosting, container platform, app store, package registry, on-prem, etc.).
+- Environment variable / secret management on the target.
+- Install / distribution / access testing on the actual target environment (e.g., PWA install, package install, container deploy, mobile sideload, CLI install path).
+- Performance testing on real hardware or representative infrastructure (not just the dev machine).
 - First real user session.
 - Feedback collection setup.
 - Production logging and monitoring configured.
-- Backup / data export path verified.
+- Backup / data export / rollback path verified.
 
-**Claude's role:** Generate deployment configs. Flag environment-specific issues (path differences, CORS, service worker scope). Verify PWA manifest and service worker.
+**Claude's role:** Generate deployment configs. Flag environment-specific issues (path differences, CORS, service worker scope, IAM, cold-start, cache headers, signing — whichever apply). Verify build/distribution scaffolding for the chosen target.
 
 **Human's role:** Execute deployment. Test on real device. Collect first real feedback.
 
 **Deliverables:**
-- Live deployment URL.
-- Successful PWA install on target device.
-- First real check-in or data entry completed.
+- Live deployment URL or equivalent access path (binary release, package version, API endpoint, etc.).
+- Successful install / access on target environment.
+- First real workflow (interaction, transaction, or data entry — whatever applies) completed end-to-end.
 - Monitoring confirmed receiving events.
 
 **Exit gate:** Has a real user completed one full workflow end to end on the target device?
 
-**Reference implementation (reference-app):** GitHub Pages target. PWA install verified on iOS and Android. First real check-in completed by the builder on their target device.
+**Reference implementation (reference-app):** Deployed to the chosen target environment. Distribution and access were verified on the actual systems users would use. First real workflow completed end-to-end by the builder. Platform-specific gotchas were caught during real-environment testing rather than after first contact with users.
 
 ---
 
