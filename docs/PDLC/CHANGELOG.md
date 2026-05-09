@@ -9,7 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ## [Unreleased]
 
 ### Added
-- (Future framework changes go here.)
+- Top-level `README.md` orienting new builders to the repo: what it is, what's inside, three quickstart paths (new project / in-flight project / review of a finished project), the five mid-session prefixes, compliance posture, and contribution rules.
 
 ---
 
